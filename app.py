@@ -78,11 +78,11 @@ def lemmatize(tokens):
 class SupervisedModel:
 
     def __init__(self):
-        filename_supervised_model = "./models/supervised_model.pkl"
-        filename_mlb_model = "./models/mlb_model.pkl"
-        filename_tfidf_model = "./models/tfidf_model.pkl"
-        filename_pca_model = "./models/pca_model.pkl"
-        filename_vocabulary = "./models/vocabulary.pkl"
+        filename_supervised_model = "./model/supervised_model.pkl"
+        filename_mlb_model = "./model/mlb_model.pkl"
+        filename_tfidf_model = "./model/tfidf_model.pkl"
+        filename_pca_model = "./model/pca_model.pkl"
+        filename_vocabulary = "./model/vocabulary.pkl"
 
         self.supervised_model = pickle.load(open(filename_supervised_model, 'rb'))
         self.mlb_model = pickle.load(open(filename_mlb_model, 'rb'))
@@ -106,8 +106,8 @@ class SupervisedModel:
 class LdaModel:
 
     def __init__(self):
-        filename_model = "./models/lda_model.pkl"
-        filename_dictionary = "./models/dictionary.pkl"
+        filename_model = "./model/lda_model.pkl"
+        filename_dictionary = "./model/dictionary.pkl"
         self.model = pickle.load(open(filename_model, 'rb'))
         self.dictionary = pickle.load(open(filename_dictionary, 'rb'))
 
