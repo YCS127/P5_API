@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
+nltk.download('punkt')
 from nltk import word_tokenize
 from nltk.tokenize import sent_tokenize
 from nltk.stem import WordNetLemmatizer
