@@ -3,8 +3,7 @@ import pandas as pd
 #import html5lib
 import re
 import pickle
-pip install beautifulsoup4
-#from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 import nltk
 from nltk.corpus import stopwords
 from nltk import word_tokenize
