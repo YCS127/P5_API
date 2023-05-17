@@ -3,16 +3,40 @@ import pandas as pd
 import numpy as np
 import pickle
 
+
+
+import lxml
+import html5lib
+import re
+
+from bs4 import BeautifulSoup
+import nltk
+from nltk.corpus import stopwords
+from nltk import word_tokenize
+from nltk.tokenize import sent_tokenize
+from nltk.stem import WordNetLemmatizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn.svm import LinearSVC
+from sklearn.multiclass import OneVsRestClassifier
+import gensim
+import gensim.corpora as corpora
+from gensim import models
+from gensim.utils import simple_preprocess
+from gensim.models.ldamulticore import LdaMulticore
+from gensim.models import CoherenceModel
+
 def clean_html(text):
     
-    from bs4 import BeautifulSoup
+    
     soup = BeautifulSoup(text, "html5lib")
     for sent in soup(['style', 'script']):
         sent.decompose()
     return ' '.join(soup.stripped_strings)
 
 def text_cleaning(text):
-    import re
+    
     pattern = re.compile(r'[^\w]|[\d_]')
     try: 
         res = re.sub(pattern," ", text).lower()
@@ -24,8 +48,7 @@ def text_cleaning(text):
     return res
 
 def tokenize(text):
-    from nltk.corpus import stopwords
-    from nltk import word_tokenize
+    
     stop_words = set(stopwords.words('english'))
     try:
         res = word_tokenize(text, language='english')
@@ -35,13 +58,13 @@ def tokenize(text):
     return res
 
 def filtering_nouns(tokens):
-    import nltk
+    
     res = nltk.pos_tag(tokens)
     res = [token[0] for token in res if token[1] == 'NN']
     return res
 
 def lemmatize(tokens):
-    from nltk.stem import WordNetLemmatizer
+    
     lemmatizer = WordNetLemmatizer()
     lemmatized = []
     for token in tokens:
