@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 
 def clean_html(text):
-    import BeautifulSoup4
+    from bs4 import BeautifulSoup4
     #from bs4 import BeautifulSoup
     soup = BeautifulSoup4(text, "html5lib")
     for sent in soup(['style', 'script']):
