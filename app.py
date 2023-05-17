@@ -4,9 +4,9 @@ import numpy as np
 import pickle
 
 def clean_html(text):
-    from bs4 import BeautifulSoup4
+    from bs4 import BeautifulSoup
     #from bs4 import BeautifulSoup
-    soup = BeautifulSoup4(text, "html5lib")
+    soup = BeautifulSoup(text, "html5lib")
     for sent in soup(['style', 'script']):
         sent.decompose()
     return ' '.join(soup.stripped_strings)
