@@ -1,6 +1,6 @@
 import pandas as pd
-import lxml
-import html5lib
+#import lxml
+#import html5lib
 import re
 import pickle
 from bs4 import BeautifulSoup
