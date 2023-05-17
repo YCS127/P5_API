@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-from pydantic import BaseModel
+#from pydantic import BaseModel
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from utils import clean_html, text_cleaning, tokenize, filtering_nouns, lemmatize, LdaModel, SupervisedModel
