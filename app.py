@@ -6,7 +6,7 @@ import pickle
 def clean_html(text):
     import BeautifulSoup4
     #from bs4 import BeautifulSoup
-    soup = BeautifulSoup(text, "html5lib")
+    soup = BeautifulSoup4(text, "html5lib")
     for sent in soup(['style', 'script']):
         sent.decompose()
     return ' '.join(soup.stripped_strings)
